@@ -1,0 +1,35 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #ff8fab;
+  --color-primary-hover: #fb6f92;
+  --color-background: #fff0f3;
+  --color-secondary: #ffc2d1;
+  --color-text: #C06C84;
+  --color-surface: #ffffff;
+  --color-border: #ffe0e8;
+
+
+   /* Typography */
+  --text-h1: 1.875rem;
+  --text-h1--line-height: 2.25rem;
+
+  --text-h2: 1.5rem;
+  --text-h2--line-height: 2rem;
+
+  --text-h3: 1.25rem;
+  --text-h3--line-height: 1.75rem;
+
+  --text-body: 1rem;
+  --text-body--line-height: 1.5rem;
+
+  --text-small: 0.875rem;
+  --text-small--line-height: 1.25rem;
+
+  /* Spacing */
+  --spacing-page: 1.5rem;
+  --spacing-section: 2rem;
+  --spacing-card: 1rem;
+  --spacing-control: 0.75rem;
+}
+
