@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { useOutletContext } from "react-router";
-import useTasks from "../hooks/TaskHooks/useTasks";
+import { useTasks } from "../hooks/useTask.js";
 import TaskList from "../components/tasks/TaskList";
 import TaskFilter from "../components/tasks/TaskFilter";
 

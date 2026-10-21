@@ -1,14 +1,9 @@
-import useTasks from "../hooks/TaskHooks/useTasks";
+import { useTasks } from "../hooks/useTask.js";
 import TaskList from "../components/tasks/TaskList";
 import { useOutletContext } from "react-router";
 
 export default function Dashboard() {
-  const {
-    data: tasks,
-    isPending,
-    isError,
-    error,
-  } = useTasks();
+  const { data: tasks, isPending, isError, error } = useTasks();
 
   const { handleEditTask } = useOutletContext();
 
@@ -24,23 +19,17 @@ export default function Dashboard() {
 
   // Calculate dashboard counts
   const completedCount = taskList.filter(
-    (task) => task.status === "Completed"
+    (task) => task.status === "Completed",
   ).length;
 
   const pendingCount = taskList.filter(
-    (task) => task.status === "Pending"
+    (task) => task.status === "Pending",
   ).length;
 
   const overdueCount = taskList.filter((task) => {
-    const dueDate = task.dueDate
-      ? String(task.dueDate).slice(0, 10)
-      : "";
+    const dueDate = task.dueDate ? String(task.dueDate).slice(0, 10) : "";
 
-    return (
-      task.status !== "Completed" &&
-      dueDate !== "" &&
-      dueDate < today
-    );
+    return task.status !== "Completed" && dueDate !== "" && dueDate < today;
   }).length;
 
   const stats = [
@@ -77,9 +66,7 @@ export default function Dashboard() {
             className="flex items-center justify-between gap-control rounded-xl border border-border bg-surface p-card shadow-sm transition hover:-translate-y-1 hover:shadow-md"
           >
             <div className="flex flex-col gap-2">
-              <p className="text-small text-text/70">
-                {stat.title}
-              </p>
+              <p className="text-small text-text/70">{stat.title}</p>
 
               <p className="text-h1 font-bold text-text">
                 {isPending || isError ? "—" : stat.count}
@@ -103,10 +90,7 @@ export default function Dashboard() {
       ) : isError ? (
         <p>Error: {error.message}</p>
       ) : (
-        <TaskList
-          tasks={taskList}
-          onEditTask={handleEditTask}
-        />
+        <TaskList tasks={taskList} onEditTask={handleEditTask} />
       )}
     </section>
   );

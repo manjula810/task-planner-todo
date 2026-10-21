@@ -1,5 +1,5 @@
-import useDeleteTask from "../../hooks/TaskHooks/useDeleteTask";
-import useUpdateTask from "../../hooks/TaskHooks/useUpdateTask";
+import { useDeleteTask, useUpdateTask } from "../../hooks/useTask.js";
+
 export default function TaskList({ tasks = [], onEditTask }) {
   const deleteTask = useDeleteTask();
   function handleDelete(id) {
@@ -10,10 +10,8 @@ export default function TaskList({ tasks = [], onEditTask }) {
   }
 
   const updateTask = useUpdateTask();
-
   function handleStatusChange(task) {
     const newStatus = task.status === "Completed" ? "Pending" : "Completed";
-
     updateTask.mutate({
       id: task._id,
       updatedTask: {

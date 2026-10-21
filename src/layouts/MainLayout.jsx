@@ -3,7 +3,7 @@ import SideBar from "./SideBar";
 import { Outlet } from "react-router";
 import { useState } from "react";
 import Modal from "../components/common/Modal";
-import { useAddTask, useUpdateTask } from "../hooks/TaskHooks/useTask";
+import { useAddTask, useUpdateTask } from "../hooks/useTask.js";
 
 export default function MainLayout() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -11,7 +11,7 @@ export default function MainLayout() {
 
   const addTask = useAddTask();
   const updateTask = useUpdateTask();
-  
+
   function handleEditTask(task) {
     setEditingTask(task);
     setIsModalOpen(true);

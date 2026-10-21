@@ -1,7 +1,7 @@
 
-import { useQuery } from "@tanstack/react-query";
+import { useQuery,useMutation,useQueryClient  } from "@tanstack/react-query";
 
-import { useMutation, useQueryClient } from "@tanstack/react-query";
+
 
 const API_URL = "https://task-planner-backend-2-vysu.onrender.com/api/tasks";
 
